@@ -1,0 +1,34 @@
+ArgoCD CLI :
+***********
+1.Download the latest ArgoCD CLI binary:
+curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+
+2.Make the binary executable:
+sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
+
+3.Move the binary to a directory in your PATH:
+rm argocd-linux-amd64
+
+4.Verify the installation:
+argocd version
+
+Login To ArgoCd By CLI:
+*********************
+command : argocd login <ip address:port no>
+Example : argocd login 52.66.198.53:30904
+
+Adding a cluster in ArgoCD:
+Run ----> argocd cluster add context-name.
+Example -----> argocd cluster add vgs.k8s.remote
+
+Removing a cluster in ArgoCD:
+Run ----> argocd cluster rm context-name.
+Example -----> argocd cluster rm vgs.k8s.remote
+
+=======================================================
+
+kubectl config get-contexts(to check no of cluster in my machine)
+
+kubectl config use-context vgs.k8s.local(used switch cluster like(git checkout))
+
+kubectl config current-context(used to check current cluster(git branch))
